@@ -213,6 +213,7 @@ sub _parse {
 
         if (/^\)\s*(.*?);$/) { # end of table definition
             $self->{options} = $1;
+            $self->{options} =~ s/AUTO_INCREMENT=[0-9]+ //;
             debug(4,"got table options '$self->{options}'");
             last;
         }
